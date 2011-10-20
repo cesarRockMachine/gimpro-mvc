@@ -22,7 +22,7 @@
 	<body id="login">
 		<div id="wrapper">
 			<h1><a href="index.html">Ingreso</a></h1>
-			<form action="" method="post" name="loginform" id="loginform">
+			<form action="?controlador=Index&accion=validate" method="post" name="loginform" id="loginform">
 				<fieldset>
 					<p>
 					

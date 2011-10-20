@@ -1,0 +1,437 @@
+@CHARSET "UTF-8";
+
+h1 a {
+	background: url(../img/logo-login.png) no-repeat top center;
+	width: 326px;
+	height: 67px;
+	text-indent: -9999px;
+	overflow: hidden;
+	padding-bottom: 15px;
+	display: block;
+}
+
+body {
+	padding-top: 30px;
+	font-family: 'Droid Sans', sans-serif;
+	font-size: 12px;
+	background: #fbfbfb;
+}
+
+a {
+	text-decoration: none;
+}
+
+/* PRINCIPAL */
+#wrapper {
+	width: 980px;
+	margin: 0 auto;
+	padding: 0;
+	min-height: 100%;
+	display: none;
+}
+
+#wheader {
+	width: 100%;
+	margin: 0 auto;
+}
+
+#header {
+	position: relative;
+	float: left;
+	height: 83px;
+	margin: 0 auto;
+}
+
+#datos {
+	position: relative;
+	float: right;
+	font-size: 16px;
+	padding: 40px 0 0 0;
+}
+
+#datos a {
+	padding: 5px 10px 5px 10px;
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	-moz-box-shadow: 0 0 5px #888;
+	-webkit-box-shadow: 0 0 5px #888;
+	box-shadow: 0 0 5px #888;
+}
+
+#contenido {
+	position: relative;
+	float: left;
+	width: 940px;
+	margin-left: 8px;
+	padding: 26px 24px 46px;
+	font-weight: normal;
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	background: #fff;
+	border: 1px solid #e5e5e5;
+	-moz-box-shadow: rgba(200, 200, 200, 0.7) 0 4px 10px -1px;
+	-webkit-box-shadow: rgba(200, 200, 200, 0.7) 0 4px 10px -1px;
+	-khtml-box-shadow: rgba(200, 200, 200, 0.7) 0 4px 10px -1px;
+	box-shadow: rgba(200, 200, 200, 0.7) 0 4px 10px -1px;
+	margin-left: 8px;
+}
+
+#contenido h1 {
+	font-size: 26px;
+	font-weight: bold;
+	color: #274e82;
+	margin-bottom: 5px;
+}
+
+.error h1 {
+	margin-top: 2em;
+	font-size: 24px;
+}
+
+.error img {
+	margin: 2em;
+	float: left;
+}
+
+#contenido h2 {
+	font-size: 20px;
+	font-style: italic;
+	color: #274e82;
+	display: inline;
+	margin-right: 15px;
+}
+
+input,textarea {
+	padding: 9px;
+	border: solid 1px #E5E5E5;
+	outline: 0;
+	width: 200px;
+	background: #FFFFFF;
+	font-size: 17px;
+}
+
+.button-primary { //
+	background: #274e82;
+	font-family: sans-serif;
+	padding: 3px 10px;
+	border: none;
+	font-size: 20px;
+	border-width: 1px;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+	text-decoration: none;
+	margin-top: -3px;
+	height: 40px; //
+	color: white;
+	width: 100px;
+}
+
+input:hover,textarea:hover,input:focus,textarea:focus {
+	border-color: #C9C9C9;
+}
+
+.form label {
+	margin-left: 10px;
+	color: #999999;
+	font-size: 14px;
+}
+
+.submit input {
+	width: auto;
+	padding: 9px 15px;
+	background: #617798;
+	border: 0;
+	font-size: 14px;
+	color: #FFFFFF;
+}
+
+#fichas {
+	position: relative;
+	float: left;
+	margin: 2em auto;
+	width: 450px;
+	padding-left: 20px;
+}
+
+#contenido {
+	position: relative;
+	float: left;
+}
+
+#avatar {
+	float: right;
+	width: 200px;
+	position: relative;
+}
+
+#avatar img {
+	float: right;
+}
+
+#personal {
+	float: left;
+	position: relative;
+	width: 500px;
+}
+
+#personal h1 {
+	display: inline;
+	padding: 0;
+	margin: 0 10px 0 0;
+}
+
+#personal ul,li {
+	display: block;
+	margin: 20px 0 0 0;
+}
+
+.label {
+	font-size: 16px;
+	width: 150px;
+	float: left;
+	display: block;
+	clear: both;
+	text-align: right;
+	margin: 5px 5px 0 0;
+}
+
+.value {
+	font-size: 16px;
+	width: 300px;
+	float: left;
+	margin: 5px 5px 0 0;
+}
+
+#medicamentos {
+	position: relative;
+	float: left;
+	margin: 2em auto;
+	width: 450px;
+	padding-left: 20px;
+}
+
+#pildorita {
+	width: 100%;
+	float: left;
+	position: relative;
+}
+
+#pildorita h1 {
+	color: white;
+	margin: 20px;
+	float: left;
+	text-align: center;
+	display: inline;
+	padding: 20px;
+	width: 200px;
+}
+
+#pildorita img {
+	float: left;
+	width: 100px;
+	height: 150px;
+	margin: 0 15px 0 0;
+}
+
+#medicamento #featured {
+	float: left;
+}
+
+#medicamentos ul {
+	margin-top: 2px;
+	padding: 1em;
+	text-align: center;
+}
+
+#agregar {
+	display: inline;
+	float: right;
+}
+
+#agregar h1 {
+	font-size: 16px;
+}
+
+#medicamentos li {
+	display: inline;
+	margin-right: 1px;
+	font-size: 14px;
+}
+
+#medicamentos li a {
+	text-decoration: none;
+}
+
+
+#footer {
+	width: 100%;
+	margin-right: 5px;
+	padding: 26px 24px 46px;
+	float: left;
+}
+
+#footer p {
+	font-size: 10px;
+}
+
+#footer .logos {
+	float: right;
+	text-align: right;
+}
+
+
+/*COLORS*/
+.gray {
+	color: #e9e9e9;
+	border: solid 1px #555;
+	background: #6e6e6e;
+	background: -webkit-gradient(linear, left top, left bottom, from(#888),
+		to(#575757) );
+	background: -moz-linear-gradient(top, #888, #575757);
+	filter: progid : DXImageTransform.Microsoft.gradient ( startColorstr =
+		'#888888', endColorstr = '#575757' );
+}
+
+.gray:hover {
+	background: #616161;
+	color: white;
+	background: -webkit-gradient(linear, left top, left bottom, from(#757575),
+		to(#4b4b4b) );
+	background: -moz-linear-gradient(top, #757575, #4b4b4b);
+	filter: progid : DXImageTransform.Microsoft.gradient ( startColorstr =
+		'#757575', endColorstr = '#4b4b4b' );
+}
+
+.gray:active {
+	color: #afafaf;
+	background: -webkit-gradient(linear, left top, left bottom, from(#575757),
+		to(#888) );
+	background: -moz-linear-gradient(top, #575757, #888);
+	filter: progid : DXImageTransform.Microsoft.gradient ( startColorstr =
+		'#575757', endColorstr = '#888888' );
+}
+
+.blue {
+	color: #d9eef7;
+	border: solid 1px #0076a3;
+	background: #0095cd;
+	background: -webkit-gradient(linear, left top, left bottom, from(#00adee),
+		to(#0078a5) );
+	background: -moz-linear-gradient(top, #00adee, #0078a5);
+	filter: progid : DXImageTransform.Microsoft.gradient ( startColorstr =
+		'#00adee', endColorstr = '#0078a5' );
+}
+
+.blue:hover {
+	background: #007ead;
+	background: -webkit-gradient(linear, left top, left bottom, from(#0095cc),
+		to(#00678e) );
+	background: -moz-linear-gradient(top, #0095cc, #00678e);
+	filter: progid : DXImageTransform.Microsoft.gradient ( startColorstr =
+		'#0095cc', endColorstr = '#00678e' );
+}
+
+.blue:active {
+	color: #80bed6;
+	background: -webkit-gradient(linear, left top, left bottom, from(#0078a5),
+		to(#00adee) );
+	background: -moz-linear-gradient(top, #0078a5, #00adee);
+	filter: progid : DXImageTransform.Microsoft.gradient ( startColorstr =
+		'#0078a5', endColorstr = '#00adee' );
+}
+
+/*TABLES*/
+table {
+	overflow: hidden;
+	border: 1px solid #d3d3d3;
+	background: #fefefe;
+	width: 70%;
+	margin: 5% auto 0;
+	-moz-border-radius: 5px; /* FF1+ */
+	-webkit-border-radius: 5px; /* Saf3-4 */
+	border-radius: 5px;
+	-moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+th,td {
+	padding: 18px 28px 18px;
+	text-align: center;
+}
+
+th {
+	padding-top: 22px;
+	text-shadow: 1px 1px 1px #fff;
+	background: #e8eaeb;
+}
+
+td {
+	border-top: 1px solid #e0e0e0;
+	border-right: 1px solid #e0e0e0;
+}
+
+tr.odd-row td {
+	background: #f6f6f6;
+}
+
+td.first,th.first {
+	text-align: left
+}
+
+td.last {
+	border-right: none;
+}
+
+/*
+    Background gradients are completely unnessary but a neat effect.
+    */
+td {
+	background: -moz-linear-gradient(100% 25% 90deg, #fefefe, #f9f9f9);
+	background: -webkit-gradient(linear, 0% 0%, 0% 25%, from(#f9f9f9),
+		to(#fefefe) );
+}
+
+tr.odd-row td {
+	background: -moz-linear-gradient(100% 25% 90deg, #f6f6f6, #f1f1f1);
+	background: -webkit-gradient(linear, 0% 0%, 0% 25%, from(#f1f1f1),
+		to(#f6f6f6) );
+}
+
+th {
+	background: -moz-linear-gradient(100% 20% 90deg, #e8eaeb, #ededed);
+	background: -webkit-gradient(linear, 0% 0%, 0% 20%, from(#ededed),
+		to(#e8eaeb) );
+}
+
+/*
+    I know this is annoying, but we need dditional styling so webkit will recognize rounded corners on background elements.
+    Nice write up of this issue: http://www.onenaught.com/posts/266/css-inner-elements-breaking-border-radius
+    
+    And, since we've applied the background colors to td/th element because of IE, Gecko browsers also need it.
+    */
+tr:first-child th.first {
+	-moz-border-radius-topleft: 5px;
+	-webkit-border-top-left-radius: 5px; /* Saf3-4 */
+}
+
+tr:first-child th.last {
+	-moz-border-radius-topright: 5px;
+	-webkit-border-top-right-radius: 5px; /* Saf3-4 */
+}
+
+tr:last-child td.first {
+	-moz-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-left-radius: 5px; /* Saf3-4 */
+}
+
+tr:last-child td.last {
+	-moz-border-radius-bottomright: 5px;
+	-webkit-border-bottom-right-radius: 5px; /* Saf3-4 */
+}
