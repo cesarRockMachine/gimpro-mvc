@@ -23,5 +23,10 @@ class EjercicioController extends ControllerBase
 	{
 		echo 'Aqui incluiremos nuestro formulario para insertar items';
 	}
+
+    public function eliminar()
+    {
+        echo 'Eliminacion de items';
+    }
 }
 ?>
