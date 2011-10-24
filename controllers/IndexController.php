@@ -35,6 +35,11 @@ class IndexController extends ControllerBase
                 $this->index();
         }
     }
+    //momentaneo, mientras se desarrolla el controlador correspondiente
+    public function perfil(){
+
+        require'views/perfil.php';
+    }
 
    
 
