@@ -37,7 +37,12 @@
             <br/>
 
             <p class="forgetmenot"><label><input name="rememberme" type="checkbox" id="rememberme" value="forever"
+
                                                  tabindex="90"/> Recu&eacute;rdame</label></p>
+            </p>
+            <br/>
+                 <label><a href="index.php?controlador=login&accion=agregar"> Registrarme</a></label>
+            <br/>
             <input class="button-primary" id="login-submit" type="submit" value="Entrar"/>
         </fieldset>
     </form>
