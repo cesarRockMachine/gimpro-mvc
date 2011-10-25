@@ -27,7 +27,7 @@ h2 {
 #image1 {
 	width:788px;
 	height: 145px;
-	background-image:url('/public/img/perfil/gim_logo.gif');
+	background-image:url('../img/perfil/gim_logo.gif');
 	background-position: center;
     }
 
@@ -44,12 +44,12 @@ h2 {
     font-weight: normal;
     line-height: 38px;
     color: #FFFFFF;
-    background: #3476A7 url('/public/img/perfil/h2.jpg') no-repeat;
+    background: #3476A7 url('../img/perfil/h2.jpg') no-repeat;
 }
 
 #sidebar .box {
     padding: 15px 20px 20px 20px;
-    background: url('/public/img/perfil/box.jpg') no-repeat top;
+    background: url('../img/perfil/box.jpg') no-repeat top;
 }
 
 #sidebar p {
@@ -59,7 +59,7 @@ h2 {
 #sidebar ul {
     list-style: none;
     padding: 15px 0 24px 0;
-    background: url('/public/img/perfil/box.jpg') no-repeat top;
+    background: url('../img/perfil/box.jpg') no-repeat top;
     cursor: pointer;
     
 }
@@ -67,7 +67,7 @@ h2 {
 #sidebar ul:hover {
     list-style: none;
     padding: 15px 0 24px 0;
-    background: url('/public/img/perfil/box.jpg') no-repeat top;
+    background: url('../img/perfil/box.jpg') no-repeat top;
     cursor: pointer;
     opacity: 50;
     
@@ -208,12 +208,12 @@ a:hover {
     font-weight: normal;
     line-height: 38px;
     color: #FFFFFF;
-    background: #3476A7 url('/public/img/perfil/h2.jpg') no-repeat;
+    background: #3476A7 url('../img/perfil/h2.jpg') no-repeat;
 }
 
 #sidebar .box {
     padding: 15px 20px 20px 20px;
-    background: url('/public/img/perfil/box.jpg') no-repeat top;
+    background: url('../img/perfil/box.jpg') no-repeat top;
 }
 
 #sidebar p {
@@ -223,7 +223,7 @@ a:hover {
 #sidebar ul {
     list-style: none;
     padding: 15px 0 24px 0;
-    background: url('/public/img/perfil/box.jpg') no-repeat top;
+    background: url('../img/perfil/box.jpg') no-repeat top;
 }
 
 #sidebar ul li {
@@ -279,7 +279,7 @@ p.postmeta {
     height: 70px;
     margin: 0 auto;
     padding-top: 10px;
-    background: url('/public/img/perfil/footer.jpg') no-repeat top;
+    background: url('../img/perfil/footer.jpg') no-repeat top;
 }
 
 #footer p {
@@ -296,7 +296,7 @@ p.postmeta {
 nav {  
 	width:788px;
     position: absolute;  
-	background:url(/public/img/perfil/barra.png) repeat-x;
+	background:url(../img/perfil/barra.png) repeat-x;
 	float:left;
 	text-align:justify;
     

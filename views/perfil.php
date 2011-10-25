@@ -52,20 +52,19 @@
 
                 <ul>
 
-                    //TODO hacer dinamico el menu
+
                     <?php
 
+                    $items_menu=array("Item1","item2","item3");
+
                     foreach ($items_menu as $item)
-                        echo "<li class='off' id=$item onmouseover='this.className='on'" onmouseout="this.className='off'">$item</li>'
+                    {
 
+                        $over="this.className='on'";
+                        $out="this.className='off'";
+                        echo "<li class='off' id='".$item."'".' onmouseover="'.$over.'" onmouseout="'.$out.'">'.$item."</li>";
+                    }
                     ?>
-					<li class="off" id="home" onmouseover="this.className='on'" onmouseout="this.className='off'">Home</li>
-
-                    <li class="off" id="buscar" onmouseover="this.className='on'" onmouseout="this.className='off'" >Buscar Alumno</li>
-
-                    <li class="off" id="editar_perfil" onmouseover="this.className='on'" onmouseout="this.className='off'" >Editar Perfil</li>
-
-                    <li class="off" id="estadisticas" onmouseover="this.className='on'" onmouseout="this.className='off'" >Ver Estadisticas de Encuestas</li>
 
                 </ul>
 
@@ -97,6 +96,7 @@
     <div class="entry">
                     
                     <?php
+               /**
                     header ('Content-type: text/html; charset=iso-8859-1');
                     //ToDo: verificar que sea un profesor. agregar links con perfil de usuario. 
                      include_once('includes/header.php');
@@ -105,12 +105,27 @@
 					 $array = new Usuarios();
 					 $last= array();
 					 $last=$array->getLastRegister();
-					 
+				*/
+        
+        
 					 
 					?>
                     <table border = 0.5 style="text-align: center">
 							<tr> <th>Nombre Alumno </th> <th>Nota Encuesta</th> <th>Habilitado</th> <th>Fecha Registro</th> </tr>
-							<?php foreach ($last as $ultimo)
+							<?php
+                        
+                        while ($item = $last->fetch())
+                            { echo "<tr><td><a href='perfil.php?id=".$item['id_user']." title='Ver Perfil''>".$item['nombres']." ".$item['nombres']."</a></td>";
+							  echo "<td><a href='result_encuesta.php?id=".$item['id_user']." title='Ver Perfil''>".$item['nota_encuesta']."</a></td>";
+							//  if($item->isHabilitado())
+						//	  echo "<td>".$item->getPerfil()."</td>";
+							//  else
+							  echo "<td><a href='link para cuadro de habilitacion' title='Click para Habilitar'>No</a></td>";
+							  echo "<td>".$item['fecha_inicio']."</td></tr>";
+
+							}
+                     /**
+                     foreach ($last as $ultimo)
 							{ echo "<tr><td><a href='perfil.php?id=".$ultimo->getIDUser()."&flag=1 title='Ver Perfil''>".$ultimo->getNombres()." ".$ultimo->getApellidos()."</a></td>";
 							  echo "<td><a href='result_encuesta.php?id=".$ultimo->getIDUser()." title='Ver Perfil''>".$ultimo->getNota_encuesta()."</a></td>";
 							//  if($ultimo->isHabilitado())
@@ -118,7 +133,9 @@
 							//  else
 							  echo "<td><a href='link para cuadro de habilitacion' title='Click para Habilitar'>No</a></td>";
 							  echo "<td>".$ultimo->getFecha_inicio()."</td></tr>";
-							}?>																											 
+
+							}
+                      */?>
 							
 					</table>
 				

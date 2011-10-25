@@ -14,9 +14,10 @@ class AlumnosModel extends ModelBase
     {
 
         $query = $this->db->prepare("SELECT * FROM (SELECT * FROM usuario order by fecha_inicio desc limit 5) as fecha order by fecha_inicio asc");
-        $query->excute();
-        $rows = $query->fetch();
-        
+
+        $query->execute();
+
+        return $query;
     }
     public function Validar($user, $pass)
     {
