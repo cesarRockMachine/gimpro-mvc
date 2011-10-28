@@ -10,26 +10,17 @@
 class AlumnosModel extends ModelBase
 {
 
+       //Muestra los ultimos 5 usuarios registrados
     public function lastRegister()
     {
 
-        $query = $this->db->prepare("SELECT * FROM (SELECT * FROM usuario order by fecha_inicio desc limit 5) as fecha order by fecha_inicio asc");
+        $query = $this->db->prepare("SELECT * FROM (SELECT * FROM usuario ORDER BY fecha_inicio DESC limit 5) AS fecha ORDER BY fecha_inicio asc");
 
         $query->execute();
 
         return $query;
     }
-    public function Validar($user, $pass)
-    {
-        $q = $this->db->prepare("SELECT password from usuario where username=:usuario");
-        $q->bindParam(':usuario', $user);
-        $q->execute();
-        $row = $q->fetch(PDO::FETCH_ASSOC);
-        if ($row["password"] == "" || $row["password"] != $pass) {
-            return 0; // usuario/contraseña incorrecta
-        }
-        else return 1; // usuario/contraseña correcta
-    }
+
 
 }
 ?>

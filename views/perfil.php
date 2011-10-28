@@ -1,9 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES"
 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="">
 
 <head>
 
@@ -19,15 +19,49 @@
 
     <link href="public/css/perfil.css" rel="stylesheet" type="text/css" />
 
+    <script type="text/javascript" src="public/js/jquery-1.6.4.js"></script>
+
+    <script>
+
+        $(document).ready(function() {
+
+    $('#sidebar li').click(function(){
+
+        var toLoad = $(this).attr('id');
+        var toLoad = "?controlador=Profesor&accion="+toLoad;
+    //    alert (toLoad);
+        
+    $('#content').hide('fast',loadContent);
+    $('#load').remove();
+    //$('#wrapper').append('<span id="load">LOADING...</span>');
+    $('#load').fadeIn('normal');
+   // window.location.hash = $(this).attr('href').substr(0,$(this).attr('href').length-5);
+    function loadContent() {
+        $('#content').load(toLoad,'',showNewContent())
+    }
+    function showNewContent() {
+        $('#content').show('slow',hideLoader());
+    }
+    function hideLoader() {
+        $('#load').fadeOut('normal');
+    }
+    return false;
+});
+});
+
+    </script>
+
+    <!-- Especificamos los script: JQUERY y el controlador del menu: menu_profesor.js -->
+    <!--	<script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.2.6.min.js"></script> -->
+    <!--	<script type="text/javascript" src="menu_profesor.js"></script> -->
+    <!-- <script type="text/javascript" src="js/jquery.url.min.js"></script> -->
+    <!-- <script type="text/javascript" src="ajax.js"></script> -->
+
 </head>
 
 <body>
 
-<!-- Especificamos los script: JQUERY y el controlador del menu: menu_profesor.js -->
-	<script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.2.6.min.js"></script>
-	<script type="text/javascript" src="menu_profesor.js"></script>
-<script type="text/javascript" src="js/jquery.url.min.js"></script>
-<script type="text/javascript" src="ajax.js"></script>
+
 	
     <div id="header">
 		<!-- imagen cabecera del GYM -->
@@ -45,7 +79,7 @@
 
     <div id="main"><div id="main2">	
 
-	<!-- nuestro menu principal... fijarse que es sidebar y dentro de este va el li con el id que identifica la seccion-->
+	<!-- nuestro menu principal... fijarse que es sidebar y dentro de este va el li con el id que registra la accion a realizar-->
             <div id="sidebar">
 
                 <h2>Menu Principal</h2>
@@ -55,14 +89,15 @@
 
                     <?php
 
-                    $items_menu=array("Item1","item2","item3");
+                    $items_menu=array("","home","item3","item1","item2","item3");
 
                     foreach ($items_menu as $item)
                     {
 
                         $over="this.className='on'";
                         $out="this.className='off'";
-                        echo "<li class='off' id='".$item."'".' onmouseover="'.$over.'" onmouseout="'.$out.'">'.$item."</li>";
+                        $uitem=ucfirst($item);
+                        echo "<li class='off' id='".$item."'".' onmouseover="'.$over.'" onmouseout="'.$out.'">'.$uitem."</li>";
                     }
                     ?>
 
@@ -115,7 +150,7 @@
 							<?php
                         
                         while ($item = $last->fetch())
-                            { echo "<tr><td><a href='perfil.php?id=".$item['id_user']." title='Ver Perfil''>".$item['nombres']." ".$item['nombres']."</a></td>";
+                            { echo "<tr><td><a href='perfil.php?id=".$item['id_user']." title='Ver Perfil''>".$item['nombres']." ".$item['apellidos']."</a></td>";
 							  echo "<td><a href='result_encuesta.php?id=".$item['id_user']." title='Ver Perfil''>".$item['nota_encuesta']."</a></td>";
 							//  if($item->isHabilitado())
 						//	  echo "<td>".$item->getPerfil()."</td>";
