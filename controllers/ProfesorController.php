@@ -11,7 +11,7 @@ class ProfesorController extends ControllerBase {
 
 //Incluye el modelo que corresponde
 
-function home()
+    function home()
     {
 		require 'models/AlumnosModel.php';
 
@@ -28,7 +28,7 @@ function home()
 		$this->view->show("lastregister.php", $data);
     }
 
-    function lastRegisters()
+    function welcome()
     {
 		require 'models/AlumnosModel.php';
 
@@ -43,6 +43,18 @@ function home()
 
 		//Finalmente presentamos nuestra plantilla
 		$this->view->show("perfil.php", $data);
+    }
+
+    function ejercicios(){
+
+           require 'models/EjerciciosModel.php';
+
+            $listarEjercicios= new EjerciciosModel();
+
+            $lista = $listarEjercicios->listadoTotal();
+
+           $data['listado'] = $lista;
+           $this->view->show("ejercicios.php",$data);
     }
 }
 ?>

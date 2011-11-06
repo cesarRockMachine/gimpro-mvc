@@ -47,7 +47,10 @@
     }
     return false;
 });
+
+
 });
+
 
     </script>
 
@@ -89,7 +92,7 @@
 
                     <?php
 
-                    $items_menu=array("","home","item3","item1","item2","item3");
+                    $items_menu=array("ejercicios","home","busquedaAlumno","item1","item2","item3");
 
                     foreach ($items_menu as $item)
                     {
