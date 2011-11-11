@@ -7,7 +7,13 @@
 
 <head>
 
-    <title>Gimnasio III: Perfil Profesor</title>
+    <?php
+
+           $titulo=$estructura['titulo'];
+           $controlador = $estructura['controlador'];
+    ?>
+
+    <title>Gimnasio III: <?php echo $titulo ?></title>
 
     <meta name="keywords" content="" />
 
@@ -28,7 +34,7 @@
     $('#sidebar li').click(function(){
 
         var toLoad = $(this).attr('id');
-        var toLoad = "?controlador=Profesor&accion="+toLoad;
+        var toLoad = "?controlador=" + <?php echo $controlador ?> + "&accion="+toLoad;
     //    alert (toLoad);
         
     $('#content').hide('fast',loadContent);
@@ -92,15 +98,12 @@
 
                     <?php
 
-                    $items_menu=array("home","perfil","buscar Alumno","ejercicios","item2","item3");
-
-                    foreach ($items_menu as $item)
+                    foreach ($menu_visual as $item)
                     {
 
                         $over="this.className='on'";
                         $out="this.className='off'";
-                        $uitem=ucfirst($item);
-                        echo "<li class='off' id='".$item."'".' onmouseover="'.$over.'" onmouseout="'.$out.'">'.$uitem."</li>";
+                        echo "<li class='off' id='".$function[$menu_visual]."'".' onmouseover="'.$over.'" onmouseout="'.$out.'">'.$item."</li>";
                     }
                     ?>
 

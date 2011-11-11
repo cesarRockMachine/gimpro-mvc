@@ -12,9 +12,11 @@
           return false;
     });
 
-      $('#list_ejercicios option').change(function(){
-         
-
+      $('#lista_ejercicios option').change(function(){
+        var display = $(this).attr('id');
+          alert(display);
+       //  display.css(display,'none');
+          return false;
       });
              
 

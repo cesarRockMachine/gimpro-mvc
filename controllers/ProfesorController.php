@@ -42,7 +42,7 @@ class ProfesorController extends ControllerBase {
 		$data['last'] = $listado;
 
 		//Finalmente presentamos nuestra plantilla
-		$this->view->show("perfil.php", $data);
+		$this->view->show("perfil.php?controlador=p", $data);
     }
 
     function ejercicios(){
