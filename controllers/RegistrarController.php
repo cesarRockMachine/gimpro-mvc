@@ -17,26 +17,50 @@ class RegistrarController extends ControllerBase {
 
         //Creamos una instancia de nuestro "modelo"
 		$registar = new RegistrarModel();
+        $mensaje="";
 
-		//Le pedimos al modelo todos los items
+        //Valida si es un user válido
 		$respuesta = $registar->validar_login($_POST['user']);
+        $data['respuesta'] = $respuesta;
 
-		//Pasamos a la vista toda la informaci�n que se desea representar
-		$data['respuesta'] = $respuesta;
-
+         // Si es un user válido se procede a realizar el registro
         if($data['respuesta']){
 
-            $registar->guardar($_POST['id_user'],$_POST['username'],$_POST['password'],$_POST['nombres'],$_POST['apellidos'],$_POST['genero'],$_POST['fecha_nacimiento'],$_POST['rut'],$_POST['rol'],$_POST['carrera'],$_POST['ciudad'],$_POST['celular'],$_POST['email'],$_POST['dias_entrenamiento'],$_POST['observaciones'],$_POST['perfil'],$_POST['fecha_inicio'],$_POST['objetivo'],$_POST['ranking']);
-            
+            $fecha_nacimiento = $_POST["anio"]."-".$_POST["mes"]."-".$_POST["dia"];
 
+            // Almacena datos personales del alumno
+            $r=$registar->save($_POST['user'],$_POST['pass'],$_POST['nombres'],$_POST['ape'],$_POST['gen'],$fecha_nacimiento,$_POST['rut'],$_POST['rol'],$_POST['carrera'],$_POST['ciudad'],$_POST['celular'],$_POST['email']);
+            $data['respuesta'] = $r;
 
-        }
+            if($r){
 
-		//Finalmente presentamos nuestra plantilla
-		$this->view->show("respuesta.php", $data);
+              //Función que obtiene el id del alumno
+              $id=$registar->getID($_POST['user'],$_POST['pass']);
+              $data['respuesta'] = $id;
 
+                if($id != false) {
 
-    }
+                 //Almacena datos físicos del alumno
+                  $r=$registar->save_IMC($id,$_POST['peso'],$_POST['altura']);
+
+                    if($r){
+                         $data['respuesta'] = $id;
+                     //    echo "Alumno registrado";
+                         $this->view->show("encuesta.php",$data);
+                    }else{ $mensaje .= '<script name="accion">alert("No se registraron los datos físicos del alumno, vuelva a intentarlo por favor") </script>';
+                        echo $mensaje;
+                           $this->view->show("registrar.php");}
+                }else  $this->view->show("registrar.php");
+            } else { $mensaje .= '<script name="accion">alert("Alumno no registrado") </script>';
+                      echo $mensaje;
+                     $this->view->show("index.php");
+                     }
+        }else { $mensaje .= '<script name="accion">alert("Username repetido, digite uno nuevo") </script>';
+               echo $mensaje;
+                $this->view->show("registrar.php");
+                }
+
+   }
 
     
 

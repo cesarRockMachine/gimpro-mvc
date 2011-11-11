@@ -103,7 +103,11 @@
 
                         $over="this.className='on'";
                         $out="this.className='off'";
+<<<<<<< HEAD
                         echo "<li class='off' id='".$function[$menu_visual]."'".' onmouseover="'.$over.'" onmouseout="'.$out.'">'.$item."</li>";
+=======
+                        echo "<li class='off' id='".$function[$item]."'".' onmouseover="'.$over.'" onmouseout="'.$out.'">'.$item."</li>";
+>>>>>>> remotes/ale/master
                     }
                     ?>
 
