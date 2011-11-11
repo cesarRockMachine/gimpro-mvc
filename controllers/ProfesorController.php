@@ -39,10 +39,7 @@ class ProfesorController extends ControllerBase {
 		$listado = $users->lastRegister();
 
 		//Pasamos a la vista toda la informaci�n que se desea representar
-		$data['last'] = $listado;
-
-		//Finalmente presentamos nuestra plantilla
-		$this->view->show("perfil.php?controlador=p", $data);
+         return $listado;
     }
 
     function ejercicios(){

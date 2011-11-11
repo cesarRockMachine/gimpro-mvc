@@ -29,6 +29,9 @@ class PerfilController extends ControllerBase {
 
    public  function show(){
 
+        require 'ProfesorController.php';
+        //require 'AlumnoController.php';
+
         if($_SESSION['perfil']== 'profesor'){
 
             $estructura['titulo'] = 'Perfil Profesor';
@@ -39,6 +42,10 @@ class PerfilController extends ControllerBase {
             $function['Perfil']='perfil';
             $function['Buscar Alumno']='buscar';
             $function['Estadísticas']='estadisticas';
+
+            $profesor = new ProfesorController();
+
+            $welcome = $profesor->welcome();
 
 
         }else if($_SESSION['perfil']== 'alumno'){
@@ -58,6 +65,7 @@ class PerfilController extends ControllerBase {
        $data['estructura']=$estructura;
        $data['menu_visual']=$menu_visual;
        $data['function']= $function;
+       $data ['welcome'] = $welcome;
 
        $this->view->show("perfil.php",$data);
 }

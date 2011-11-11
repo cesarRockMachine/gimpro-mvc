@@ -8,7 +8,7 @@
 <head>
 
     <?php
-
+           header ('Content-type: text/html; charset=utf-8');
            $titulo=$estructura['titulo'];
            $controlador = $estructura['controlador'];
     ?>
@@ -30,11 +30,12 @@
     <script>
 
         $(document).ready(function() {
+         var controlador = '<?php echo $controlador ?>';
 
     $('#sidebar li').click(function(){
 
         var toLoad = $(this).attr('id');
-        var toLoad = "?controlador=" + <?php echo $controlador ?> + "&accion="+toLoad;
+        var toLoad = "?controlador=" + controlador + "&accion="+toLoad;
     //    alert (toLoad);
         
     $('#content').hide('fast',loadContent);
@@ -103,11 +104,7 @@
 
                         $over="this.className='on'";
                         $out="this.className='off'";
-<<<<<<< HEAD
-                        echo "<li class='off' id='".$function[$menu_visual]."'".' onmouseover="'.$over.'" onmouseout="'.$out.'">'.$item."</li>";
-=======
                         echo "<li class='off' id='".$function[$item]."'".' onmouseover="'.$over.'" onmouseout="'.$out.'">'.$item."</li>";
->>>>>>> remotes/ale/master
                     }
                     ?>
 
@@ -158,8 +155,8 @@
                     <table border = 0.5 style="text-align: center">
 							<tr> <th>Nombre Alumno </th> <th>Nota Encuesta</th> <th>Habilitado</th> <th>Fecha Registro</th> </tr>
 							<?php
-                        
-                        while ($item = $last->fetch())
+
+                        while ($item = $welcome->fetch())
                             { echo "<tr><td><a href='perfil.php?id=".$item['id_user']." title='Ver Perfil''>".$item['nombres']." ".$item['apellidos']."</a></td>";
 							  echo "<td><a href='result_encuesta.php?id=".$item['id_user']." title='Ver Perfil''>".$item['nota_encuesta']."</a></td>";
 							//  if($item->isHabilitado())
@@ -169,6 +166,7 @@
 							  echo "<td>".$item['fecha_inicio']."</td></tr>";
 
 							}
+
                      /**
                      foreach ($last as $ultimo)
 							{ echo "<tr><td><a href='perfil.php?id=".$ultimo->getIDUser()."&flag=1 title='Ver Perfil''>".$ultimo->getNombres()." ".$ultimo->getApellidos()."</a></td>";
@@ -208,33 +206,12 @@
 <!-- content -->
 </fieldset>
             </div>                    
-                	
-            <div class="clearing">&nbsp;</div>      
-</div>             
-  
-  <div class="post">
-				
-         <!-- otra seccion del css es como un subtitulo-->          <!--  p con class postmeta -> css  <p class="postmeta">Posted in <a href="#">Class apent</a> | Apr 18, 2011 | <a href="#">4 comments</a></p> -->
 
-    <div class="entry">
-                    
-   																									 
-							
-					</table>
-				
-					
-                    </div>
-
-                </div>
-			              
-
-</fieldset>
-            </div>
 <!-- fin del content -->                    
                 	
             <div class="clearing">&nbsp;</div>   
 
-    </div></div><!-- main --><!-- main2 -->
+    </div> </div><!-- main --><!-- main2 -->
 
     <div id="footer">
 
