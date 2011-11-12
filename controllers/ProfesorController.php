@@ -53,5 +53,18 @@ class ProfesorController extends ControllerBase {
            $data['listado'] = $lista;
            $this->view->show("ejercicios.php",$data);
     }
+    function estadisticas(){
+     
+         require 'controllers/GraficController.php';
+         
+           $grafic=new GraficController();
+
+        $grafic->ListarGraficConsumo();
+        $grafic->ListarGraficEnfermedades();
+       // $grafic->ListarGraficLesiones();
+          //$grafic->ListarGraficActFisica();
+           $this->view->show("estadistica.php");
+    }
+
 }
 ?>
