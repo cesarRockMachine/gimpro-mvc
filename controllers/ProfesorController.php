@@ -44,11 +44,11 @@ class ProfesorController extends ControllerBase {
 
     function ejercicios(){
 
-           require 'models/EjerciciosModel.php';
+           require 'EjerciciosController.php';
 
-            $listarEjercicios= new EjerciciosModel();
+            $listarEjercicios= new EjerciciosController();
 
-            $lista = $listarEjercicios->listadoTotal();
+            $lista = $listarEjercicios->listar();
 
            $data['listado'] = $lista;
            $this->view->show("ejercicios.php",$data);
