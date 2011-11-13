@@ -25,7 +25,7 @@ class EjerciciosController extends ControllerBase
     public function video()
     {
 
-        $id = $_GET['lista_ejercicios'];
+        $id = $_GET['id'];
 
 
         require 'models/EjerciciosModel.php';
@@ -35,8 +35,7 @@ class EjerciciosController extends ControllerBase
         $video = $ejercicio->getvideo($id);
         $result = $video->fetch();
 
-        echo $id;   
-        //echo $result["video"];
+        echo $result["video"];
 
 
     }

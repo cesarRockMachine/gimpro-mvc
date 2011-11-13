@@ -5,16 +5,24 @@
 
         $(document).ready(function() {
 
-            $('#lista_ejercicios option').click(function() {
+            /*            $('#lista_ejercicios option').click(function() {
                 var video = $(this).attr('value');
                 video = "#" + video;
                 $(video).slideToggle();
                 return false;
-            });
-
+            });*/
+            //   $("#show_video").toggle("fast");
             $('#lista_ejercicios').change(function() {
                 var id_video = $(this).attr('value');
-                if(id_)loadVideo(id_video);
+                var display = $("#show_video").attr('style');
+
+
+                if (display == 'display:inline;')
+                    $("#show_video").toggle("5", false);
+                if (!(id_video == ""))
+                    loadVideo(id_video);
+                else
+                    $('#show_video').toggle(false);
                 return false;
             });
 
@@ -33,12 +41,18 @@
 
             xmlhttp.onreadystatechange = function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                   alert(xmlhttp.responseText);
-                    document.getElementById("link2").innerHTML = xmlhttp.responseText;
+                    //   alert(xmlhttp.responseText);
+                    var video = document.getElementById("show_video");
+
+                    var url = "http://www.youtube.com/embed/"+xmlhttp.responseText+"?rel=0";
+
+                    video.firstElementChild.setAttribute("src",url);
+                    $(video).toggle(true, "slow");
+                    
                 }
             }
 
-            xmlhttp.open("GET", "?controlador=Ejercicios&accion=video&id="+ id, true);
+            xmlhttp.open("GET", "?controlador=Ejercicios&accion=video&id=" + id, true);
             xmlhttp.send();
         }
     </script>
@@ -52,11 +66,11 @@
             echo '<select id="lista_ejercicios">';
             echo '<option id="0" selected> Seleccione el video a mostrar </option> ';
 
-           //crea la lista de ejercicios
+            //crea la lista de ejercicios
             while ($item = $listado->fetch())
             {
 
-                echo "<option  id='" . $item['id_ejercicio'] ."' value='" . $item['id_ejercicio'] . "'>" . $item['nombre'] . "</option>";
+                echo "<option  id='" . $item['id_ejercicio'] . "' value='" . $item['id_ejercicio'] . "'>" . $item['nombre'] . "</option>";
 
             }
             echo "</select>";
@@ -64,17 +78,11 @@
 
 
             ?>
-            <div id="link2" style="display:none;">
+            <p></p>
+            <div id="show_video" style="display:none;">
 
-                <object width="420" height="315">
-                    <param name="movie"
-                           value="http://www.youtube.com/v/_5LGaT4FxDM?version=3&amp;hl=en_US&amp;rel=0"></param>
-                    <param name="allowFullScreen" value="true"></param>
-                    <param name="allowscriptaccess" value="always"></param>
-                    <embed src="http://www.youtube.com/v/_5LGaT4FxDM?version=3&amp;hl=en_US&amp;rel=0"
-                           type="application/x-shockwave-flash" width="420" height="315" allowscriptaccess="always"
-                           allowfullscreen="true"></embed>
-                </object>
+                <iframe width="560" height="315" src="http://www.youtube.com/embed/eNtTmv8kBtA?rel=0" frameborder="0"
+                        allowfullscreen></iframe>
 
 
             </div>
