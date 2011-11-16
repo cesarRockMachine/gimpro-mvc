@@ -4,12 +4,14 @@
     <script type="text/javascript">
 
         $(document).ready(function() {
+                var id_user = <?php echo $id_user; ?>
 
             $('#lista_ejercicios').change(function() {
                 var id_zona = $(this).attr('value');
 
-                var dataString = 'id_zona=' + id_zona;
+                var dataString = 'id_zona=' + id_zona +'&id_user='+id_user;
                 //return false;
+                if(id_zona!=''){
                 $.ajax({
                     type: "POST",
                     url: "?controlador=Ejercicios&accion=ListarZona",
@@ -20,6 +22,8 @@
                     }
 
                 });
+                }
+                  $("#listar").empty();
                 return false;
             });
 
@@ -59,12 +63,20 @@
        
     </script>
 
+    <?php
+
+      session_start();
+
+     $_SESSION['id_user']= $id_user;
+
+    ?>
 
 
     <h2>Zonas de Ejercicios</h2>
 
 
     <div class="post">
+
 
         <div class="entry">
 

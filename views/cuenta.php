@@ -10,6 +10,12 @@ src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
 
 $(document).ready(function() {
 
+    $(".data-class").click(function(){
+
+
+
+    });
+
 	//Default Action
 	$(".tab_content").hide(); //Hide all content
 	$("ul.tabs li:first").addClass("active").show(); //Activate first tab
@@ -46,7 +52,7 @@ $(document).ready(function() {
 
         <div id="tab1" class="tab_content">
 
-    <form action="?controlador=Perfil&accion=actualizar_datos" name="Datos Personales" method="post" autocomplete= "off" ">
+    <form class="data-class" name="Datos Personales" method="post" autocomplete= "off" ">
     <td><input name="id" type = "hidden" value="<?php echo $id_user; ?>"></td>
     <table>
     <tr>

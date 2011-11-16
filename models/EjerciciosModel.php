@@ -20,13 +20,14 @@ class EjerciciosModel extends ModelBase
 
     }
 
-    public function save($name, $link)
+    public function save($name, $link,$zona)
     {
 
-        $consulta = $this->db->prepare('INSERT INTO ejercicio (nombre,video) VALUES (:name,:link);');
+        $consulta = $this->db->prepare('INSERT INTO ejercicio (nombre,zona,video) VALUES (:name,:zona,:link);');
 
         $consulta->bindParam(":name", $name);
         $consulta->bindParam(":link", $link);
+        $consulta->bindParam(":zona", $zona);
 
         return $consulta->execute();
     }
@@ -49,6 +50,26 @@ class EjerciciosModel extends ModelBase
         $consulta->execute();
         //devolvemos la coleccion para que la vista la presente.
         return $consulta;
+
+
+    }
+    
+    public function saveCicloEjercicio($id_ejercicio,$id_user,$id_ciclo,$maximal,$carga,$repeticiones,$series,$pausa){
+
+        $consulta = $this->db->prepare("INSERT INTO ciclo_ejercicio (id_ejercicio,id_user,id_ciclo,maximal,carga,repeticiones,series,pausa) VALUES (:id_ejercicio,:id_user,:id_ciclo,:maximal,:carga,:repeticiones,:series,:pausa)");
+
+        $consulta->bindParam(':id_ejercicio',$id_ejercicio);
+        $consulta->bindParam(':id_user',$id_user);
+        $consulta->bindParam(':id_ciclo',$id_ciclo);
+        $consulta->bindParam(':maximal',$maximal);
+        $consulta->bindParam(':carga',$carga);
+        $consulta->bindParam(':repeticiones',$repeticiones);
+        $consulta->bindParam(':series',$series);
+        $consulta->bindParam(':pausa',$pausa);
+
+        $valor=$consulta->execute();
+		//devolvemos la coleccion para que la vista la presente.
+		print_r($valor);
 
 
     }

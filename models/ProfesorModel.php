@@ -22,6 +22,21 @@ class ProfesorModel extends ModelBase{
 
     }
 
+    public function updatePersonal($id,$nombres,$apellidos,$hobbie,$celular,$email){
+
+        $consulta = $this->db->prepare("UPDATE profesor SET nombres=:nombres, apellidos=:apellidos,hobbie=:hobbie, celular=:celular, email=:email WHERE id_profesor=:id ");
+        $consulta->bindParam(':id', $id);
+        $consulta->bindParam(':nombres', $nombres);
+        $consulta->bindParam(':apellidos', $apellidos);
+        $consulta->bindParam(':hobbie', $hobbie);
+        $consulta->bindParam(':celular', $celular);
+        $consulta->bindParam(':email', $email);
+        $r=$consulta->execute();
+
+        if($r) return true;
+        else return false;
+    }
+
 
 
 }

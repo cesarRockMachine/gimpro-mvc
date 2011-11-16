@@ -1,3 +1,4 @@
+<?php header('Content-type: text/html; charset=UTF-8');?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES"
 
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -7,7 +8,6 @@
 <head>
 
     <?php
-           header('Content-type: text/html; charset=utf-8');
     $titulo = $estructura['titulo'];
     $controlador = $estructura['controlador'];
     $habilitado = $estructura['habilitado'];
@@ -23,7 +23,7 @@
     <title>Gimnasio III: <?php echo $titulo ?></title>
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="language" content="es"/>
     <link href="public/css/perfil.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="public/js/jquery-1.6.4.js"></script>
@@ -205,7 +205,7 @@
             <?php } else if ($controlador == "Alumno" && $habilitado == true) { ?>
             <p>Bienvenido alumno</p>
             <?php } else if ($controlador == "Alumno" && $habilitado == false && $resp == "") { ?>
-            <p>Cuenta inhabilitada, a espera de la aprobación del profesor a cargo.</p>
+            <p>Cuenta inhabilitada, espera de la aprobación n del profesor a cargo.</p>
             <?php } else if ($controlador == "Alumno" && $habilitado == false && $resp != "") { ?>
 
             <h3>Resultados encuesta</h3>

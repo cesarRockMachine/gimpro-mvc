@@ -119,6 +119,35 @@ class ProfesorController extends ControllerBase
 
     }
 
+
+    public function update_personales(){
+                require 'models/ProfesorModel.php';
+         $id = $_POST['id'];
+        $profesor = new ProfesorModel();
+
+        if($profesor->updatePersonal($_POST['id'],$_POST['nombres'],$_POST['apellidos'],$_POST['hobbie'],$_POST['celular'],$_POST['email'])){
+
+
+            $row= $profesor->getDatos($id);
+
+            echo $row;
+
+
+
+            
+            
+        }
+    }
+/*        public function addRutina(){
+
+            $id_user = $_GET['id_user'];
+
+            $data['id_user'] = $id_user;
+            $this->view->show("cicloMuscular.php",$data);
+
+        }*/
+
+
 }
 
 ?>

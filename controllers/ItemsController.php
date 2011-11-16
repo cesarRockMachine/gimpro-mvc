@@ -16,7 +16,6 @@ class ItemsController extends ControllerBase
 		$data['listado'] = $listado;
 
 		//Finalmente presentamos nuestra plantilla
-		$this->view->show("listar.php", );
 	}
 
 	public function agregar()

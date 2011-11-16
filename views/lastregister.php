@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div id="content">
 
 
@@ -8,21 +7,6 @@
 
         <div class="entry">
 
-            <?php
-                                           /**
-        header ('Content-type: text/html; charset=iso-8859-1');
-        //ToDo: verificar que sea un profesor. agregar links con perfil de usuario.
-        include_once('includes/header.php');
-        $array = array();
-
-        $array = new Usuarios();
-        $last= array();
-        $last=$array->getLastRegister();
-         */
-
-
-
-            ?>
             <table border=0.5 style="text-align: center">
                 <tr>
                     <th>Nombre Alumno</th>
@@ -43,18 +27,7 @@
                     echo "<td>" . $item['fecha_inicio'] . "</td></tr>";
 
                 }
-                /**
-                foreach ($last as $ultimo)
-                { echo "<tr><td><a href='perfil.php?id=".$ultimo->getIDUser()."&flag=1 title='Ver Perfil''>".$ultimo->getNombres()." ".$ultimo->getApellidos()."</a></td>";
-                echo "<td><a href='result_encuesta.php?id=".$ultimo->getIDUser()." title='Ver Perfil''>".$ultimo->getNota_encuesta()."</a></td>";
-                //  if($ultimo->isHabilitado())
-                //	  echo "<td>".$ultimo->getPerfil()."</td>";
-                //  else
-                echo "<td><a href='link para cuadro de habilitacion' title='Click para Habilitar'>No</a></td>";
-                echo "<td>".$ultimo->getFecha_inicio()."</td></tr>";
-
-                }
-                 */?>
+                 ?>
 
             </table>
 
