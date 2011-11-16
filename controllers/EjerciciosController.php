@@ -61,10 +61,27 @@ class EjerciciosController extends ControllerBase
         
     }
 
+     public function ListarZona(){
+
+		require 'models/EjerciciosModel.php';
+         $id_zona = $_POST['id_zona'];
+		//Creamos una instancia de nuestro "modelo"
+		$items = new EjerciciosModel();
+
+		$listado = $items->selectEjercicioZona($id_zona);
+
+		//Pasamos a la vista toda la informaci�n que se desea representar
+		$data['listado'] = $listado;
+
+		//Finalmente presentamos nuestra plantilla
+		$this->view->show("listar_ejercicios.php", $data);
+}
+
     public function eliminar()
     {
         echo 'Eliminacion de items';
     }
+
 }
 
 ?>

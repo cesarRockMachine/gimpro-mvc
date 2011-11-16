@@ -483,3 +483,62 @@ html ul.tabs li.active, html ul.tabs li.active a:hover  {
 	border: 1px solid #ddd;
 	padding: 5px;
 }
+
+#box {
+            margin: 0px auto;
+            width: 960px;
+            background-color: #ffffff;
+            text-align: left;
+            position: absolute;
+        }
+
+        #addEjercicioFormContainer {
+            position: inherit;
+            left: 180px;
+            float: inherit;
+        }
+
+        #EjercicioForm {
+            height: 277px;
+            width: 351px;
+            /*   background-image: url('public/img/bkg.jpg');*/
+            display: none;
+        }
+
+        #EjercicioForm fieldset {
+            padding: 30px;
+            border: none;
+        }
+
+        #EjercicioForm label {
+            display: block;
+            color: #ffc400;
+        }
+
+        #EjercicioForm input[type=text] {
+            display: block;
+            border: solid 1px #4d3a24;
+            width: 100%;
+            margin-bottom: 10px;
+            height: 24px;
+        }
+
+        #EjercicioForm input[type=submit] {
+            background-color: #666666;
+            border: solid 1px #000000;
+            color: #000099;
+            padding: 5px;
+        }
+
+        #contactLink {
+            height: 40px;
+            width: 351px;
+            /*background-image:url('slidein_button.png'); */
+            display: block;
+            cursor: pointer;
+        }
+
+        #formSent {
+            color: #3333ff;
+            display: none;
+        }

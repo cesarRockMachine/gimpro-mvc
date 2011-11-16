@@ -65,8 +65,8 @@ class ProfesorController extends ControllerBase
 
         $grafic->ListarGraficConsumo();
         $grafic->ListarGraficEnfermedades();
-        // $grafic->ListarGraficLesiones();
-        //$grafic->ListarGraficActFisica();
+        $grafic->ListarGraficLesiones();
+        $grafic->ListarGraficActFisica();
         $this->view->show("estadistica.php");
     }
 
@@ -99,7 +99,6 @@ class ProfesorController extends ControllerBase
 
 
         require "models/ProfesorModel.php";
-
         $id= $_GET['id'];
         $profesor= new ProfesorModel();
         
@@ -107,6 +106,19 @@ class ProfesorController extends ControllerBase
         $this->view->show("cuentaprofesor.php",$data);
 
     }
+
+ public function perfil_alumno(){
+             require 'models/AlumnosModel.php';
+            $alumno = new AlumnosModel();
+            $id_alumno= $_GET['id'];
+
+            $data['lesion']= $alumno->lesiones($id_alumno);
+            echo $data['lesion'];
+            $data = $alumno->datos($id_alumno);
+            $this->view->show("alumnoProfesor.php",$data);
+
+    }
+
 }
 
 ?>

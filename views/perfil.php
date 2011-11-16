@@ -10,26 +10,29 @@
            header('Content-type: text/html; charset=utf-8');
     $titulo = $estructura['titulo'];
     $controlador = $estructura['controlador'];
+    $habilitado = $estructura['habilitado'];
+    if ($controlador == "Profesor")
+        $id_profe = $estructura['id_profe'];
+    else
+        $id_profe="";
+    $resp = array();
+    $resp = $respuestas;
+
     ?>
 
     <title>Gimnasio III: <?php echo $titulo ?></title>
-
     <meta name="keywords" content=""/>
-
     <meta name="description" content=""/>
-
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-
     <meta name="language" content="es"/>
-
     <link href="public/css/perfil.css" rel="stylesheet" type="text/css"/>
-
     <script type="text/javascript" src="public/js/jquery-1.6.4.js"></script>
 
     <script>
 
         $(document).ready(function() {
             var controlador = '<?php echo $controlador ?>';
+            var id = '<?php echo $id_profe ?>';
 
 
             $('#sidebar li').click(function() {
@@ -37,7 +40,7 @@
                 var toLoad = $(this).attr('id');
 
                 if (controlador == "Profesor" && toLoad == "perfil") {
-                    var id = "1"; //cambiar por el valor que deberia devolver session
+
                     toLoad = "?controlador=" + controlador + "&accion=" + toLoad + "&id=" + id;
 
                 }
@@ -66,11 +69,54 @@
                 return false;
             });
 
+       //        $(document).ready(function(){
+          $('.btn').click(function(){
+
+                var id = $(this).attr("id");
+              showPerfil(id);
 
         });
+});
+
+    </script>
+
+    <script language="javascript" type="text/javascript">
+        function showPerfil(id) {
+            var ajaxRequest;
+            try {
+                // Opera 8.0+, Firefox, Safari
+                ajaxRequest = new XMLHttpRequest();
+            } catch (e) {
+                // Internet Explorer Browsers
+                try {
+                    ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
+                } catch (e) {
+                    try {
+                        ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
+                    } catch (e) {
+                        // Something went wrong
+                        alert("Your browser broke!");
+                        return false;
+                    }
+                }
+            }
+            ajaxRequest.onreadystatechange = function() {
+                if (ajaxRequest.readyState == 4) {
+                    $('.entry').empty();
+                    $('.entry').append(ajaxRequest.responseText);
+
+
+                }
+            }
+            var queryString = "&id=" + id;
+            ajaxRequest.open("GET", "?controlador=Profesor&accion=perfil_alumno" + queryString, true);
+            ajaxRequest.send(null);
+
+        }
 
 
     </script>
+
 
 </head>
 
@@ -80,22 +126,12 @@
 <div id="header">
     <!-- imagen cabecera del GYM -->
     <div id=image1></div>
-
-    <!-- barra navegacion -->
-    <nav>
-        <ul>
-            <li><a href="http://www.utfsm.cl/">USM</a></li>
-            <li><a href="http://www.defider.utfsm.cl">Defider</a></li>
-        </ul>
-    </nav>
-
 </div>
+    <!-- barra navegacion -->
 <!-- header -->
-
 <div id="main">
     <div id="main2">
 
-        <!-- nuestro menu principal... fijarse que es sidebar y dentro de este va el li con el id que registra la accion a realizar-->
         <div id="sidebar">
 
             <h2>Menu Principal</h2>
@@ -108,6 +144,7 @@
         foreach ($menu_visual as $item)
         {
 
+
             $over = "this.className='on'";
             $out = "this.className='off'";
             echo "<li class='off' id='" . $function[$item] . "'" . ' onmouseover="' . $over . '" onmouseout="' . $out . '">' . $item . "</li>";
@@ -117,93 +154,114 @@
             </ul>
 
 
-        </div>
-        <!-- sidebar -->
+            <div class="box"> <a href="?controlador=Index&accion=logout">Cerrar sesión</a> </div>
+</div>
 
-        <div id="content">
+ <div id="content">
 
-            <legend style="text-align:right"><h2>Ultimos Registrados </h2></legend>
+                <?php if ($controlador == "Profesor") { ?>
+                <legend style="text-align:right"><h2>Ultimos Registrados </h2></legend>
+                <?php } else { ?>
+                <fieldset><legend style="text-align:right"><h2>Bienvenido ! </h2></legend>
+                <?php } ?>
 
-            <div class="post">
 
-                <div class="entry">
+
+                <div class="post">
+
+                    <!--  p con class postmeta -> css  <p class="postmeta">Posted in <a href="#">Class apent</a> | Apr 18, 2011 | <a href="#">4 comments</a></p> -->
+
+                    <div class="entry">
 
     <?php
-                   /**
-    header ('Content-type: text/html; charset=iso-8859-1');
-    //ToDo: verificar que sea un profesor. agregar links con perfil de usuario.
-    include_once('includes/header.php');
-    $array = array();
 
-    $array = new Usuarios();
-    $last= array();
-    $last=$array->getLastRegister();
-     */
+        if ($controlador == 'Profesor') {
+            ?>
 
 
+            <table border=0.5 style="text-align: center">
+                <tr>
+                    <th>Nombre Alumno</th>
+                    <th>Nota Encuesta</th>
+                    <th>Habilitado</th>
+                    <th>Fecha Registro</th>
+                    <th>Ver perfil</th>
+                </tr>
+                <?php
 
-        ?>
-        <table border=0.5 style="text-align: center">
-            <tr>
-                <th>Nombre Alumno</th>
-                <th>Nota Encuesta</th>
-                <th>Habilitado</th>
-                <th>Fecha Registro</th>
-            </tr>
-    <?php
+                while ($item = $welcome->fetch())
+                {
+                    echo "<tr><td>" . $item['nombres'] . " " . $item['apellidos'] . "</td>";
+                    echo "<input name=''id_user' id='id_user2' type = 'hidden' value=" . $item['id_user'] . ">";
+                    echo "<td>" . $item['nota_encuesta'] . "</td>";
+                    echo "<td>" . $item['habilitado'] . "</td>";
+                    echo "<td>" . $item['fecha_inicio'] . "</td>";
+                    echo "<td><input id='" . $item['id_user'] . "' class='btn' type='button' value='ok'/></td></tr>";
 
-            while ($item = $welcome->fetch())
-            {
-                echo "<tr><td><a href='perfil.php?id=" . $item['id_user'] . " title='Ver Perfil''>" . $item['nombres'] . " " . $item['apellidos'] . "</a></td>";
-                echo "<td><a href='result_encuesta.php?id=" . $item['id_user'] . " title='Ver Perfil''>" . $item['nota_encuesta'] . "</a></td>";
-                //  if($item->isHabilitado())
-                //	  echo "<td>".$item->getPerfil()."</td>";
-                //  else
-                echo "<td><a href='link para cuadro de habilitacion' title='Click para Habilitar'>No</a></td>";
-                echo "<td>" . $item['fecha_inicio'] . "</td></tr>";
+                }
+                ?>
 
-            }
+            </table>
+            <?php } else if ($controlador == "Alumno" && $habilitado == true) { ?>
+            <p>Bienvenido alumno</p>
+            <?php } else if ($controlador == "Alumno" && $habilitado == false && $resp == "") { ?>
+            <p>Cuenta inhabilitada, a espera de la aprobación del profesor a cargo.</p>
+            <?php } else if ($controlador == "Alumno" && $habilitado == false && $resp != "") { ?>
 
-            /**
-            foreach ($last as $ultimo)
-            { echo "<tr><td><a href='perfil.php?id=".$ultimo->getIDUser()."&flag=1 title='Ver Perfil''>".$ultimo->getNombres()." ".$ultimo->getApellidos()."</a></td>";
-            echo "<td><a href='result_encuesta.php?id=".$ultimo->getIDUser()." title='Ver Perfil''>".$ultimo->getNota_encuesta()."</a></td>";
-            //  if($ultimo->isHabilitado())
-            //	  echo "<td>".$ultimo->getPerfil()."</td>";
-            //  else
-            echo "<td><a href='link para cuadro de habilitacion' title='Click para Habilitar'>No</a></td>";
-            echo "<td>".$ultimo->getFecha_inicio()."</td></tr>";
+            <h3>Resultados encuesta</h3>
+            <table>
 
-            }
-             */?>
+                <td><b>Desayuno:</b> <?php echo $resp[0];   ?></td>
+                <tr></tr>
+                <td><b>Almuerzo:</b> <?php echo $resp[1];   ?></td>
+                <tr></tr>
+                <td><b>Consumo de agua:</b> <?php echo $resp[2];   ?></td>
+                <tr></tr>
+                <td><b>Tabaco:</b> <?php echo $resp[3];   ?></td>
+                <tr></tr>
+                <td><b>Alcohol:</b> <?php echo $resp[4];   ?></td>
+                <tr></tr>
+                <td><b>Drogas:</b> <?php echo $resp[5];   ?></td>
+                <tr></tr>
 
-        </table>
+                <td><b>Enfermedades:</b> <?php echo $resp[6];   ?></td>
+                <tr></tr>
 
+                <td><b>Lesiones:</b> <?php echo $resp[7];   ?></td>
+                <tr></tr>
 
-                </div>
+                <td><b>Medicamento:</b> <?php echo $resp[8];   ?></td>
+                <tr></tr>
 
-            </div>
+                <td><b>Autestima:</b> <?php echo $resp[9];   ?></td>
+                <tr></tr>
 
+                <td><b>Actividad física:</b> <?php echo $resp[10];   ?></td>
 
-        </div>
+            </table>
+            <?php } ?>
+     </div> </div>
+     </fieldset>
 
-        <!-- fin del content -->
+     </div>
+<div class="clearing">&nbsp;</div>
 
-        <div class="clearing">&nbsp;</div>
+                    </div>
 
     </div>
-</div>
-<!-- main --><!-- main2 -->
 
-<div id="footer">
 
-    <p>Copyright &copy; 2011, designed by <a href="http://www.webtemplateocean.com/">WebTemplateOcean.com</a></p>
 
-</div>
 
-<div style="text-align: center; font-size: 0.75em;">Design downloaded from <a href="http://www.freewebtemplates.com/">free
-    website templates</a>.
-</div>
+                    <!-- main --><!-- main2 -->
+
+
+
+                    <div id="footer">
+
+                        <p>Copyright &copy; 2011, designed by GymPro</p>
+
+                    </div>
 </body>
 
 </html>

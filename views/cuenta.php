@@ -26,6 +26,8 @@ $(document).ready(function() {
 	});
 
 });
+
+
 </script>
 
 </head>
@@ -44,7 +46,7 @@ $(document).ready(function() {
 
         <div id="tab1" class="tab_content">
 
-    <form action="?controlador=Alumno&accion=actualizar_datos" name="Datos Personales" method="post" autocomplete= "off" ">
+    <form action="?controlador=Perfil&accion=actualizar_datos" name="Datos Personales" method="post" autocomplete= "off" ">
     <td><input name="id" type = "hidden" value="<?php echo $id_user; ?>"></td>
     <table>
     <tr>
@@ -89,7 +91,7 @@ $(document).ready(function() {
     </div>
 
     <div id="tab2" class="tab_content">
-            <form action="#" name="Datos académicos" method="post" autocomplete= "off" ">
+            <form action="?controlador=Perfil&accion=actualizar_academicos" name="Datos académicos" method="post" autocomplete= "off" ">
     <table>
     <tr>
 		<td>Carrera:</td>
@@ -110,7 +112,7 @@ $(document).ready(function() {
         </div>
 
         <div id="tab3" class="tab_content">
-    <form action="#" name="Datos cuenta" method="post" autocomplete= "off" ">
+    <form action="?controlador=Perfil&accion=actualizar_cuenta" name="Datos cuenta" method="post" autocomplete= "off" ">
     <table>
     <tr>
 		<td>Username:</td>
@@ -132,6 +134,5 @@ $(document).ready(function() {
     </div>
 
 </div>
-<
 </body>
 </html>
