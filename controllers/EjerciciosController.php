@@ -42,7 +42,23 @@ class EjerciciosController extends ControllerBase
 
     public function agregar()
     {
-        echo 'Aqui incluiremos nuestro formulario para insertar items';
+        require 'models/EjerciciosModel.php';
+
+        $save= new EjerciciosModel();
+
+        $name = $_POST['name'];
+        $link = $_POST['link'];
+
+        if ($save->save($name,$link))
+        {
+            $result=$save->lastAdded($name)->fetch();
+
+            echo $result["id_ejercicio"];
+    
+        }
+
+        else echo "-1";
+        
     }
 
     public function eliminar()

@@ -19,5 +19,26 @@ class EjerciciosModel extends ModelBase
     return $consulta;
 
     }
+
+    public function save ($name,$link){
+
+        $consulta = $this->db->prepare('INSERT INTO ejercicio (nombre,video) VALUES (:name,:link);');
+
+        $consulta->bindParam(":name",$name);
+        $consulta->bindParam(":link",$link);
+
+        return $consulta->execute();
+    }
+
+    public function lastAdded($name){
+
+        $consulta = $this->db->prepare('SELECT * from ejercicio where nombre=:name');
+        $consulta->bindParam(":name",$name,PDO::PARAM_STR);
+        $consulta->execute();
+
+    return $consulta;
+
+    }
+
 }
 ?>

@@ -14,7 +14,7 @@ $(document).ready(function() {
 	$(".tab_content").hide(); //Hide all content
 	$("ul.tabs li:first").addClass("active").show(); //Activate first tab
 	$(".tab_content:first").show(); //Show first tab content
-	
+
 	//On Click Event
 	$("ul.tabs li").click(function() {
 		$("ul.tabs li").removeClass("active"); //Remove any "active" class
@@ -33,7 +33,7 @@ $(document).ready(function() {
 <body>
 
 <div class="container">
-	
+
     <ul class="tabs">
         <li><a href="#tab1">Datos personales</a></li>
         <li><a href="#tab2">Datos acad&eacute;micos</a></li>
